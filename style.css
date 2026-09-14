@@ -1,26 +1,26 @@
 /* =================================================================
-   1. VARIABLES GLOBALES
+   VARIABLES GLOBALES ACTUALIZADAS (AZUL MARINO & SOFT WHITE)
 ================================================================== */
 :root {
   --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   
-  /* Paleta de Colores */
-  --text-dark: #0f172a;
-  --text-muted: #475569;
-  --text-light: #64748b;
+  /* Colores Base */
+  --bg-dark: #090d16;          /* Azul Marino Profundo */
+  --text-light: #f1f5f9;        /* Blanco tiza para títulos */
+  --text-muted: #5d5e5f;        /* Gris claro para párrafos */
   
-  /* Efecto Vidrio (Glassmorphism) */
-  --glass-bg: rgba(255, 255, 255, 0.45);
-  --glass-bg-hover: rgba(255, 255, 255, 0.65);
-  --glass-border: rgba(255, 255, 255, 0.5);
-  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+  /* Vidrio Oscuro Traslúcido */
+  --glass-bg: rgba(15, 23, 42, 0.65);
+  --glass-bg-hover: rgba(30, 41, 59, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   --glass-blur: blur(16px);
   
-  /* Colores de Acento */
-  --accent: #3b82f6;
-  --accent-hover: #2563eb;
+  /* Acento Neón / Azul Eléctrico para la Luz */
+  --accent: #75d3fc;
+  --accent-hover: #0284c7;
 
-  /* Radio de Bordes */
+  /* Radios */
   --radius-sm: 10px;
   --radius-md: 16px;
   --radius-lg: 24px;
@@ -35,28 +35,47 @@
   padding: 0;
 }
 
+/* Base Body */
 body {
   font-family: var(--font-main);
-  color: var(--text-dark);
+  background-color: var(--bg-dark);
+  color: var(--text-light);
   line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
+  position: relative;
 }
 
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* =================================================================
+   LUZ QUE SIGUE AL MOUSE (MOUSE GLOW EFFECT)
+================================================================== */
+#mouse-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(120, 213, 253, 0.35) 0%, rgba(99, 102, 241, 0.15) 45%, transparent 70%);
+  pointer-events: none; /* No interfiere con clics */
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+  z-index: 0; /* Va detrás del contenido */
 }
 
+/* Ajuste de color de textos en paneles de vidrio */
+.hero-title, .section-title, .service-title {
+  color: var(--text-light);
+}
+
+.hero-subtitle, .section-desc, .service-text {
+  color: var(--text-muted);
+}
 /* Panel Reutilizable Glassmorphism */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
 }
@@ -90,7 +109,7 @@ body {
   gap: 10px;
   font-weight: 700;
   font-size: 1.125rem;
-  color: var(--text-dark);
+  color: var(--text-light);
   text-decoration: none;
 }
 
@@ -313,5 +332,291 @@ body {
 
   .nav-links {
     display: none;
+  }
+}
+
+/* =================================================================
+   7. SECCIÓN SERVICIOS
+================================================================== */
+.services-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-tag {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.section-desc {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.service-card {
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  background: var(--glass-bg-hover);
+}
+
+.service-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: var(--accent);
+}
+
+.service-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.service-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.service-features {
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.service-features li {
+  font-size: 0.85rem;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.service-features li i {
+  color: var(--accent);
+  width: 14px;
+  height: 14px;
+}
+
+.btn-card {
+  display: inline-block;
+  text-align: center;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.btn-card:hover {
+  background: var(--text-dark);
+  color: #ffffff;
+}
+
+/* =================================================================
+   8. SECCIÓN NOSOTROS / METODOLOGÍA
+================================================================== */
+.about-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 80px 20px;
+}
+
+.about-container {
+  border-radius: var(--radius-lg);
+  padding: 48px 36px;
+}
+
+.about-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 12px 0;
+}
+
+.about-text {
+  color: var(--text-muted);
+  max-width: 700px;
+  font-size: 1.05rem;
+  margin-bottom: 40px;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 32px;
+}
+
+.step-number {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.step-item h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.step-item p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* =================================================================
+   SECCIÓN NOSOTROS (LAYOUT CON FOTO Y STORYTELLING)
+================================================================== */
+.about-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.about-container {
+  border-radius: var(--radius-lg);
+  padding: 48px 36px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* Columna de Perfil / Foto */
+.about-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+}
+
+.profile-image-wrapper {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--accent), transparent);
+  margin-bottom: 16px;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.profile-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.profile-role {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.profile-links {
+  display: flex;
+  gap: 12px;
+}
+
+.profile-link {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.profile-link:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Columna de Contenido */
+.about-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin: 12px 0;
+}
+
+.about-text {
+  color: var(--text-muted);
+  font-size: 0.975rem;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.about-text strong {
+  color: var(--text-light);
+}
+
+/* Adaptación Mobile */
+@media (max-width: 850px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 20px;
   }
 }

@@ -54,16 +54,21 @@
 
   <!-- Estilos Externos -->
   <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="assets/logo versiones-03.png" type="image/x-icon">
 </head>
 <body>
+
+  <!-- luz del mouse -->
+   <div id="mouse-glow"></div>
 
   <!-- Header / Barra de Navegación -->
   <header class="header glass-panel">
     <a href="#" class="logo">
       <div class="logo-icon">
-        <i data-lucide="layers"></i>
+        <!-- <i data-lucide="layers"></i> -->
+         <img src="assets/logo versiones-03.png" alt=" Logo Visión Design" width="70" height="auto">
       </div>
-      <span>Visión Design</span>
+      <!-- <span>Visión Design</span> -->
     </a>
 
     <nav>
@@ -159,6 +164,145 @@
 
     </section>
   </main>
+
+  <!-- =================================================================
+    SECCIÓN: GRID DE SERVICIOS (EL HUB DE APPS)
+  ================================================================== -->
+  <section id="servicios" class="services-section">
+    <div class="section-header">
+      <span class="section-tag glass-panel">Soluciones a Medida</span>
+      <h2 class="section-title">Ecosistema de Productos Digitales</h2>
+      <p class="section-desc">Aplicaciones web optimizadas para carga ultrarrápida, diseño interactivo y conversión.</p>
+    </div>
+
+    <div class="services-grid">
+      
+      <!-- Servicio 1: Invitaciones -->
+      <article class="service-card glass-panel">
+        <div class="service-icon">
+          <i data-lucide="mail-heart"></i>
+        </div>
+        <h3 class="service-title">Invitaciones Web Interactivas</h3>
+        <p class="service-text">Experiencias digitales para eventos con confirmación RSVP en tiempo real, mapas de ubicación, cuenta regresiva y galerías.</p>
+        <ul class="service-features">
+          <li><i data-lucide="check"></i> Confirmación directa</li>
+          <li><i data-lucide="check"></i> Integración con Google Maps</li>
+          <li><i data-lucide="check"></i> Diseño 100% personalizado</li>
+        </ul>
+        <a href="#contacto" class="btn-card">Probar Demo</a>
+      </article>
+
+      <!-- Servicio 2: V-Cards Pro -->
+      <article class="service-card glass-panel">
+        <div class="service-icon">
+          <i data-lucide="qr-code"></i>
+        </div>
+        <h3 class="service-title">V-Card Digital Profesional</h3>
+        <p class="service-text">Perfil de contacto interactivo con código QR dinámico, guardado directo en la agenda del celular y asistente o chatbot integrado.</p>
+        <ul class="service-features">
+          <li><i data-lucide="check"></i> Guardado en agenda (.vcf)</li>
+          <li><i data-lucide="check"></i> QR impreso / digital</li>
+          <li><i data-lucide="check"></i> Enlaces a redes y WhatsApp</li>
+        </ul>
+        <a href="#contacto" class="btn-card">Crear mi V-Card</a>
+      </article>
+
+      <!-- Servicio 3: V-PROP Real Estate -->
+      <article class="service-card glass-panel">
+        <div class="service-icon">
+          <i data-lucide="building-2"></i>
+        </div>
+        <h3 class="service-title">V-PROP (Catálogo Inmobiliario)</h3>
+        <p class="service-text">Fichas técnicas dinámicas y catálogos de propiedades diseñados para agentes inmobiliarios que buscan cerrar ventas más rápido.</p>
+        <ul class="service-features">
+          <li><i data-lucide="check"></i> Muestrario de propiedades</li>
+          <li><i data-lucide="check"></i> Carga ágil para móviles</li>
+          <li><i data-lucide="check"></i> Botón de consulta directa</li>
+        </ul>
+        <a href="#contacto" class="btn-card">Explorar V-PROP</a>
+      </article>
+
+      <!-- Servicio 4: Landing Pages -->
+      <article class="service-card glass-panel">
+        <div class="service-icon">
+          <i data-lucide="layout"></i>
+        </div>
+        <h3 class="service-title">Landing Pages & Sitios Web</h3>
+        <p class="service-text">Páginas de aterrizaje enfocadas en ventas y conversión, programadas en código limpio con SEO On-Page desde el primer día.</p>
+        <ul class="service-features">
+          <li><i data-lucide="check"></i> Código HTML/CSS/JS nativo</li>
+          <li><i data-lucide="check"></i> Estructura SEO optimizada</li>
+          <li><i data-lucide="check"></i> Core Web Vitals impecables</li>
+        </ul>
+        <a href="#contacto" class="btn-card">Cotizar Proyecto</a>
+      </article>
+
+    </div>
+  </section>
+
+
+<!-- =================================================================
+    SECCIÓN: NOSOTROS / LA HISTORIA Y EL CREADOR
+  ================================================================== -->
+  <section id="nosotros" class="about-section">
+    <div class="about-container glass-panel">
+      
+      <!-- Columna 1: Tarjeta Personal / Credencial Profesional -->
+      <div class="about-profile">
+        <div class="profile-image-wrapper">
+          <img src="assets/foto-perfil.jpg" alt="Hugo Barrios - Visión Design" class="profile-img">
+        </div>
+        <div class="profile-info">
+          <h3 class="profile-name">Daniel Barrios</h3>
+          <p class="profile-role">Diseñador Grafico & Desarrollador Web</p>
+          
+          <!-- Accesos directos profesionales -->
+          <div class="profile-actions">
+            <a href="#vcard" class="btn-profile-vcard">
+              <i data-lucide="qr-code"></i>
+              <span>Mi V-Card</span>
+            </a>
+            <a href="https://wa.me/tu-numero" target="_blank" rel="noopener" class="btn-profile-wa" aria-label="Contacto por WhatsApp">
+              <i data-lucide="message-circle"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna 2: El Origen de Visión Design & Filosofía -->
+      <div class="about-content">
+        <span class="section-tag glass-panel">Detrás del Proyecto</span>
+        <h2 class="about-title">El origen de Visión Design</h2>
+        
+        <p class="about-text">
+          Cada proyecto empieza antes de tocar la primera línea de código o el primer lienzo. Cuando un cliente me cuenta lo que quiere lograr —sea una invitación, un catálogo o una aplicación web—, en mi mente empiezo a construir la solución: <strong>visualizo el concepto, la interacción y el diseño final.</strong>
+        </p>
+        <p class="about-text">
+          Llevar esa imagen mental a la realidad y superar siempre lo que el cliente espera es lo que le dio origen a <strong>Visión Design</strong>. No se trata solo de crear páginas web, sino de darle forma visual a una idea y llevarla más allá de lo imaginado con tecnología ágil y estética pulida.
+        </p>
+
+        <!-- Metodología rápida en 3 pasos -->
+        <div class="steps-grid">
+          <div class="step-item">
+            <span class="step-number">01</span>
+            <h4>Visualización</h4>
+            <p>Traducción de tu idea en un concepto visual e interactivo sólido.</p>
+          </div>
+          <div class="step-item">
+            <span class="step-number">02</span>
+            <h4>Desarrollo a Medida</h4>
+            <p>Lienzo digital construido con código limpio, rápido y fluido.</p>
+          </div>
+          <div class="step-item">
+            <span class="step-number">03</span>
+            <h4>Valor Agregado</h4>
+            <p>Resultados pensados para superar las expectativas iniciales.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
   <!-- Script Externo -->
   <script src="script.js"></script>

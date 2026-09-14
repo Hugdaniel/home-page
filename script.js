@@ -28,3 +28,27 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  
+  // 1. Inicialización de íconos Lucide
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons({
+      attrs: {
+        'stroke-width': 1.75
+      }
+    });
+  }
+
+  // 2. Efecto de Luz Siguiendo al Cursor
+  const glow = document.getElementById('mouse-glow');
+
+  window.addEventListener('mousemove', (e) => {
+    // Usamos requestAnimationFrame para máxima fluidez a 60fps/120fps
+    requestAnimationFrame(() => {
+      glow.style.left = `${e.clientX}px`;
+      glow.style.top = `${e.clientY}px`;
+    });
+  });
+
+});
