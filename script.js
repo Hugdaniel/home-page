@@ -52,3 +52,55 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+// 3. Acordeón Interactivo de FAQ
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const questionBtn = item.querySelector('.faq-question');
+
+    questionBtn.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+
+      // Cerrar las demás preguntas para un comportamiento acordeón impecable
+      faqItems.forEach(otherItem => {
+        otherItem.classList.remove('active');
+      });
+
+      // Si no estaba activa, la abrimos
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+
+  // Envío del Formulario de Cotización a WhatsApp
+  const quoteForm = document.getElementById('quote-form');
+
+  if (quoteForm) {
+    quoteForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Configura tu número de WhatsApp (código de país + área + número)
+      const phoneNumber = "5491112345678"; 
+
+      const name = document.getElementById('quote-name').value.trim();
+      const phone = document.getElementById('quote-phone').value.trim();
+      const service = document.getElementById('quote-service').value;
+      const message = document.getElementById('quote-message').value.trim();
+
+      // Construcción del mensaje preformateado
+      let text = `¡Hola Visión Design! Quisiera cotizar un proyecto:\n\n`;
+      text += `👤 *Nombre:* ${name}\n`;
+      text += `📱 *Teléfono:* ${phone}\n`;
+      text += `🛠️ *Servicio de interés:* ${service}\n`;
+      
+      if (message) {
+        text += `📝 *Detalles:* ${message}\n`;
+      }
+
+      // Redirección a WhatsApp Web / App
+      const encodedText = encodeURIComponent(text);
+      window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
+    });
+  }
