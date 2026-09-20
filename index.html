@@ -50,7 +50,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
 
   <!-- Estilos Externos -->
   <link rel="stylesheet" href="style.css">
@@ -66,7 +66,7 @@
     <a href="#" class="logo">
       <div class="logo-icon">
         <!-- <i data-lucide="layers"></i> -->
-         <img src="assets/logo versiones-03.png" alt=" Logo Visión Design" width="70" height="auto">
+         <img src="assets/logo versiones-03.png" alt="Logo Visión Design" width="70" height="auto">
       </div>
       <!-- <span>Visión Design</span> -->
     </a>
@@ -269,7 +269,7 @@
       <!-- Columna 1: Tarjeta Personal / Credencial Profesional -->
       <div class="about-profile">
         <div class="profile-image-wrapper">
-          <img src="assets/foto-perfil.webp" alt="Hugo Barrios - Visión Design" class="profile-img">
+          <img src="assets/foto-perfil.webp" alt="Daniel Barrios - Visión Design" class="profile-img">
         </div>
         <div class="profile-info">
           <h3 class="profile-name">Daniel Barrios</h3>
@@ -497,8 +497,8 @@
 
 
 <!-- =================================================================
-    SECCIÓN: COTIZAR PROYECTO / CONTACTO
-  ================================================================== -->
+    SECCIÓN: COTIZAR PROYECTO / CONTACTO (SIN TELÉFONO)
+  ================================================================= -->
   <section id="contacto" class="quote-section">
     <div class="quote-card glass-panel">
       
@@ -512,20 +512,11 @@
         <div class="form-grid">
           
           <!-- Campo: Nombre -->
-          <div class="form-group">
-            <label for="quote-name">Nombre y Apellido</label>
+          <div class="form-group full-width">
+            <label for="quote-name">Tu Nombre o Nombre de Fantasía</label>
             <div class="input-wrapper">
               <i data-lucide="user" class="input-icon"></i>
               <input type="text" id="quote-name" placeholder="Ej. Juan Pérez" required>
-            </div>
-          </div>
-
-          <!-- Campo: Teléfono -->
-          <div class="form-group">
-            <label for="quote-phone">Teléfono / WhatsApp</label>
-            <div class="input-wrapper">
-              <i data-lucide="phone" class="input-icon"></i>
-              <input type="tel" id="quote-phone" placeholder="Ej. 11 1234 5678" required>
             </div>
           </div>
 
@@ -536,7 +527,9 @@
               <i data-lucide="layers" class="input-icon"></i>
               <select id="quote-service" required>
                 <option value="" disabled selected>Seleccioná una opción...</option>
+                <option value="Invitación Express">Invitación Express (Evento / Pago Único)</option>
                 <option value="Invitación Web Interactiva">Invitación Web Interactiva (Evento / Pago Único)</option>
+                <option value="Album Digital">Album Digital (Evento / Pago Único)</option>
                 <option value="V-Card Digital Profesional">V-Card Digital Profesional (Mantenimiento / Abono)</option>
                 <option value="Catálogo Inmobiliario V-PROP">Catálogo Inmobiliario V-PROP (Mantenimiento / Abono)</option>
                 <option value="Landing Page / Web A Medida">Landing Page / Sitio Web a Medida</option>
@@ -547,7 +540,7 @@
 
           <!-- Campo: Detalles -->
           <div class="form-group full-width">
-            <label for="quote-message">Detalles o idea del proyecto</label>
+            <label for="quote-message">Detalles o idea del proyecto (Opcional)</label>
             <div class="input-wrapper textarea-wrapper">
               <i data-lucide="message-square" class="input-icon"></i>
               <textarea id="quote-message" rows="4" placeholder="Contame un poco sobre la idea, fecha estimada o lo que te gustaría incluir..."></textarea>
@@ -575,7 +568,8 @@
       <!-- Columna 1: Branding / Acerca de -->
       <div class="footer-col brand-col">
         <div class="footer-logo">
-          <span class="logo-text">VISIÓN <span class="logo-accent">DESIGN</span></span>
+          <img src="assets/v-white.png" alt="Logo Visión Design" width="150" height="auto" class="footer-logo-img">
+          <!-- <span class="logo-text">VISIÓN <span class="logo-accent">DESIGN</span></span> -->
         </div>
         <p class="footer-description">
           Transformamos ideas en experiencias digitales interactivas, modernas y de alto impacto para marcas, profesionales y eventos.
@@ -652,6 +646,6 @@
   </footer>
 
   <!-- Script Externo -->
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

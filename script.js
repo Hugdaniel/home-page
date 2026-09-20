@@ -75,32 +75,63 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Envío del Formulario de Cotización a WhatsApp
-  const quoteForm = document.getElementById('quote-form');
+const quoteForm = document.getElementById('quote-form');
 
   if (quoteForm) {
     quoteForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      // Configura tu número de WhatsApp (código de país + área + número)
-      const phoneNumber = "5491112345678"; 
+      const phoneNumber = "5491137878083"; // Reemplazá con tu número de WhatsApp
 
       const name = document.getElementById('quote-name').value.trim();
-      const phone = document.getElementById('quote-phone').value.trim();
       const service = document.getElementById('quote-service').value;
       const message = document.getElementById('quote-message').value.trim();
 
-      // Construcción del mensaje preformateado
-      let text = `¡Hola Visión Design! Quisiera cotizar un proyecto:\n\n`;
-      text += `👤 *Nombre:* ${name}\n`;
-      text += `📱 *Teléfono:* ${phone}\n`;
-      text += `🛠️ *Servicio de interés:* ${service}\n`;
+      // Armamos el texto sin emojis complejos para evitar errores de codificación
+      let text = `¡Hola Visión Design! Estuve viendo la web y quiero consultar sobre un proyecto:\n\n`;
+      text += `- *Nombre:* ${name}\n`;
+      text += `- *Solución:* ${service}\n`;
       
       if (message) {
-        text += `📝 *Detalles:* ${message}\n`;
+        text += `- *Detalles:* ${message}\n`;
       }
 
-      // Redirección a WhatsApp Web / App
       const encodedText = encodeURIComponent(text);
       window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
     });
   }
+
+  // =================================================================
+// DETECTOR TÁCTIL (TOUCH RIPPLE EFFECT)
+// =================================================================
+document.addEventListener('DOMContentLoaded', () => {
+  // Elementos que reaccionarán al toque
+  const touchElements = document.querySelectorAll('.glass-panel, .btn-cta-wa, .btn-demo, .service-card, .faq-item, .social-icon, .btn-submit-quote');
+
+  touchElements.forEach(element => {
+    element.addEventListener('touchstart', function (e) {
+      const touch = e.touches[0];
+      const rect = element.getBoundingClientRect();
+      
+      // Crear el círculo de luz
+      const ripple = document.createElement('span');
+      ripple.classList.add('touch-ripple');
+      
+      // Tamaño dinámico según la tarjeta o botón
+      const size = Math.max(rect.width, rect.height);
+      ripple.style.width = ripple.style.height = `${size}px`;
+      
+      // Posición basada en el toque del usuario
+      ripple.style.left = `${touch.clientX - rect.left - size / 2}px`;
+      ripple.style.top = `${touch.clientY - rect.top - size / 2}px`;
+      
+      element.appendChild(ripple);
+
+      // Eliminar el elemento una vez completada la animación
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    }, { passive: true });
+  });
+});
+

@@ -89,7 +89,7 @@ body {
    3. HEADER Y NAVEGACIÓN
 ================================================================== */
 .header {
-  position: fixed;
+  position: fixed !important;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
@@ -208,7 +208,7 @@ body {
 
 .btn-primary {
   background: var(--accent);
-  color: #ffffff;
+  color: #396bc9;
   padding: 14px 28px;
   border-radius: var(--radius-sm);
   text-decoration: none;
@@ -223,6 +223,7 @@ body {
 .btn-primary:hover {
   background: var(--accent-hover);
   transform: translateY(-2px);
+  color: #ffffff;
 }
 
 .btn-secondary {
@@ -1069,12 +1070,26 @@ body {
   gap: 40px;
 }
 
+.footer-logo-img {
+  width: 120px;
+  height: auto;
+  border-radius: 12px;
+  /* background: var(--accent, #38bdf8); */
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: start; */
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+
+
 /* Columna Marca */
 .footer-logo {
-  font-size: 1.4rem;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  margin-bottom: 14px;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .logo-text {
@@ -1221,5 +1236,135 @@ body {
     flex-direction: column;
     gap: 8px;
     text-align: center;
+  }
+}
+
+/* =================================================================
+   EFECTO TÁCTIL (TOUCH RIPPLE) PARA MÓVILES
+================================================================== */
+
+/* Asegura que los elementos interactivos contengan la onda de luz */
+.glass-panel, 
+.btn-cta-wa, 
+.btn-demo, 
+.service-card, 
+.faq-item, 
+.social-icon, 
+.btn-submit-quote {
+  position: relative;
+  overflow: hidden; /* Mantiene la luz dentro del contenedor */
+}
+
+/* Elemento de la onda luminosa */
+.touch-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.35); /* Color cian deslumbrante */
+  transform: scale(0);
+  animation: rippleAnimation 0.6s ease-out;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Animación de expansión y desvanecimiento */
+@keyframes rippleAnimation {
+  to {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+/* =================================================================
+   PÁGINA DE ERROR 404 & REBOTE DVD
+================================================================== */
+.error-page-body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #070913;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.error-card {
+  width: 100%;
+  max-width: 520px;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 24px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  z-index: 2; /* Para que quede por encima del fondo */
+}
+
+.error-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  color: #38bdf8;
+  margin-bottom: 20px;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.error-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.error-description {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.error-actions {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  justify-content: center;
+}
+
+.error-actions a {
+  text-decoration: none;
+}
+
+/* El 404 Rebotador */
+#bouncing-404 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  z-index: 1; /* Pasa por detrás de la tarjeta central */
+  user-select: none;
+  pointer-events: none;
+  font-size: clamp(5rem, 14vw, 8rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -2px;
+  background: linear-gradient(135deg, #ffffff 20%, #38bdf8 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.4));
+}
+
+@media (max-width: 480px) {
+  .error-actions {
+    flex-direction: column;
   }
 }

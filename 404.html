@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página no encontrada | Visión Design</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="error-page-body">
+
+  <div class="error-card glass-panel">
+    <div class="error-badge glass-panel">
+      <i data-lucide="alert-triangle"></i>
+      <span>Error 404</span>
+    </div>
+
+    <h2 class="error-title">¿Te perdiste en el espacio digital?</h2>
+    <p class="error-description">
+      La página que estás buscando no existe o fue removida.
+    </p>
+
+    <div class="error-actions">
+      <a href="index.html" class="btn-cta-wa">
+        <i data-lucide="home"></i>
+        <span>Volver al Inicio</span>
+      </a>
+      <a href="https://wa.me/5491112345678" target="_blank" class="btn-demo glass-panel">
+        <i data-lucide="message-circle"></i>
+        <span>Consultar por WhatsApp</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- El 404 independiente para rebotar -->
+  <h1 id="bouncing-404">404</h1>
+
+  <script src="404-bounce.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
